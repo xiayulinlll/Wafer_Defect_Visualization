@@ -1,0 +1,101 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "WAFER_BUILD_TESTS": "ON",
+        "WAFER_ENABLE_TRANSLATIONS": "ON",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "vs2022",
+      "displayName": "Visual Studio 2022 (x64)",
+      "description": "MSVC 工具链；需通过环境变量 Qt6_DIR 或 -DQt6_DIR=... 指定 Qt",
+      "inherits": "base",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64"
+    },
+    {
+      "name": "ninja",
+      "displayName": "Ninja (x64)",
+      "description": "需在 MSVC 开发者命令提示符中运行；Qt6_DIR 由环境变量提供",
+      "inherits": "base"
+    },
+    {
+      "name": "mingw-release",
+      "displayName": "MinGW 11.2.0 + Ninja (Release)",
+      "description": "本机实测通过的组合：Qt 6.2.4 mingw_64 + Tools/mingw1120_64 + Tools/Ninja。若路径不同请修改或改用环境变量 Qt6_DIR。",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_PREFIX_PATH": "D:/qt6/6.2.4/mingw_64",
+        "CMAKE_MAKE_PROGRAM": "D:/qt6/Tools/Ninja/ninja.exe",
+        "CMAKE_CXX_COMPILER": "D:/qt6/Tools/mingw1120_64/bin/g++.exe"
+      }
+    },
+    {
+      "name": "debug",
+      "displayName": "Ninja Debug",
+      "inherits": "ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "vs2022-release",
+      "configurePreset": "vs2022",
+      "configuration": "Release"
+    },
+    {
+      "name": "ninja-release",
+      "configurePreset": "ninja"
+    },
+    {
+      "name": "mingw-release",
+      "configurePreset": "mingw-release"
+    },
+    {
+      "name": "debug",
+      "configurePreset": "debug"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "unit",
+      "configurePreset": "ninja",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "stopOnFailure": false
+      }
+    },
+    {
+      "name": "mingw-release",
+      "configurePreset": "mingw-release",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "unit-vs",
+      "configurePreset": "vs2022",
+      "configuration": "Release",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}

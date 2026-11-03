@@ -1,0 +1,71 @@
+# ---------------- 构建产物 ----------------
+build/
+build-*/
+out/
+cmake-build-*/
+install/
+bin/
+lib/
+*.user
+
+# ---------------- Qt 生成物 ----------------
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+*.qm
+*.ts.autosave
+Makefile
+Makefile.*
+CMakeCache.txt
+CMakeFiles/
+CMakeUserPresets.json
+
+# ---------------- Visual Studio / IDE ----------------
+.vs/
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.VC.opendb
+*.aps
+*.obj
+*.o
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.dll
+*.exe
+*.idb
+*.tlog
+*.log
+*.tmp
+
+# ---------------- 运行期产物 ----------------
+app/
+logs/
+log/
+*.log
+*.dmp
+*.pdb
+screenshots/*.png
+!screenshots/.gitkeep
+
+# 构建产物别名（build.bat 会创建 build/ninja 或 build/vs2022）
+build/debug/
+build/cmake/
+build/ninja/
+build/vs2022/
+build/mingw-release/
+build/presetchk/
+build/mingw/
+
+# ---------------- 打包 ----------------
+dist/
+package/
+*.zip
+*.7z

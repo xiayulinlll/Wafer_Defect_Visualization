@@ -1,0 +1,18 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <!--
+        着色器以 Qt 资源方式编译进可执行文件，
+        运行期通过 ":/shaders" 路径读取，避免部署时文件丢失（难点：部署健壮性）。
+        OpenGL 3.3 Core Profile GLSL 版本统一为 #version 330 core。
+    -->
+    <qresource prefix="/shaders">
+        <file alias="wafer.vert">shaders/wafer.vert</file>
+        <file alias="wafer.frag">shaders/wafer.frag</file>
+        <file alias="marker.vert">shaders/marker.vert</file>
+        <file alias="marker.frag">shaders/marker.frag</file>
+        <file alias="grid.vert">shaders/grid.vert</file>
+        <file alias="grid.frag">shaders/grid.frag</file>
+        <file alias="fbo_blit.vert">shaders/fbo_blit.vert</file>
+        <file alias="fbo_blit.frag">shaders/fbo_blit.frag</file>
+    </qresource>
+</RCC>
