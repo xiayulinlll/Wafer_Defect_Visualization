@@ -1,6 +1,9 @@
 # 轻量化3D晶圆缺陷可视化与检测数据叠加系统
 
 > Demo项目：半导体晶圆检测设备上位机3D可视化模块，Qt6 + OpenGL3.3 + GLSL，C++17
+>
+> <img width="1920" height="1032" alt="2" src="https://github.com/user-attachments/assets/31eaeae1-3364-4252-a875-f8e497e1bf4a" />
+
 
 ## 项目简介
 
